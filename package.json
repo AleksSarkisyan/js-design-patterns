@@ -1,0 +1,20 @@
+{
+  "name": "design-patterns",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Design patterns",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/index",
+    "start": "node index"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  }
+}
