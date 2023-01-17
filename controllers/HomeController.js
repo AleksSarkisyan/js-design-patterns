@@ -4,6 +4,8 @@ import { placeOrderCommand } from "../patterns/command/commands/placeOrderComman
 import { trackOrderCommand } from "../patterns/command/commands/trackOrderCommand.js";
 import { rangeIterator } from '../patterns/iterator/RangeIterator.js';
 import { rangeGenerator } from '../patterns/generator/RangeGenerator.js';
+import Mediator from "../patterns/mediator/Mediator.js";
+
 
 export const command = (req, res) => {
 
@@ -37,6 +39,13 @@ export const generator = (req, res) => {
   for (let number of rangeGenerator(1, 10, 2)) {
     console.log('number is', number);
   }
+
+  res.render('index.hbs')
+}
+
+export const mediator = (req, res) => {
+  let game = new Mediator();
+  game.updateScore(10)
 
   res.render('index.hbs')
 }
