@@ -5,6 +5,7 @@ import { iterator } from '../controllers/HomeController.js';
 import { generator } from '../controllers/HomeController.js';
 import { mediator } from '../controllers/HomeController.js';
 import { memento } from '../controllers/HomeController.js';
+import { observer } from '../controllers/HomeController.js';
 
 // Application Routes
 router.get('/command', command);
@@ -12,5 +13,6 @@ router.get('/iterator', iterator);
 router.get('/generator', generator);
 router.get('/mediator', mediator);
 router.get('/memento', memento);
+router.get('/observer', observer);
 
 export default router;

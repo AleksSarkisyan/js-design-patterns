@@ -6,6 +6,8 @@ import { rangeIterator } from '../patterns/iterator/RangeIterator.js';
 import { rangeGenerator } from '../patterns/generator/RangeGenerator.js';
 import Mediator from "../patterns/mediator/Mediator.js";
 import BookmarksManager from "../patterns/memento/BookmarksManager.js";
+import Observable from "../patterns/observer/Observable.js";
+import Observer from "../patterns/observer/Observer.js";
 
 export const command = (req, res) => {
 
@@ -62,6 +64,25 @@ export const memento = (req, res) => {
   console.log('first page is -', bookmarksManager.getFirstBookmark());
   console.log('last page is -', bookmarksManager.getLastBookmark());
   console.log('all bookmarks -', bookmarksManager.getAllBookmarks());
+
+  res.render('index.hbs')
+}
+
+export const observer = (req, res) => {
+  let observable = new Observable();
+
+  let observer1 = new Observer();
+  let observer2 = new Observer();
+  let observer3 = new Observer();
+  let observer4 = new Observer();
+
+  observable.subscribe(observer1);
+  observable.subscribe(observer2);
+  observable.subscribe(observer3);
+  observable.subscribe(observer4);
+
+  observable.unsubscribe(observer1);
+  observable.notifyAllObservers();
 
   res.render('index.hbs')
 }
