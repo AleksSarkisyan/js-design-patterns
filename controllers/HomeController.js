@@ -8,6 +8,7 @@ import Mediator from "../patterns/mediator/Mediator.js";
 import BookmarksManager from "../patterns/memento/BookmarksManager.js";
 import Observable from "../patterns/observer/Observable.js";
 import Observer from "../patterns/observer/Observer.js";
+import Product from "../patterns/strategy/Product.js";
 
 export const command = (req, res) => {
 
@@ -83,6 +84,22 @@ export const observer = (req, res) => {
 
   observable.unsubscribe(observer1);
   observable.notifyAllObservers();
+
+  res.render('index.hbs')
+}
+
+export const strategy = (req, res) => {
+  const product = new Product();
+  let productPrice = product.getPrice(10);
+
+  productPrice = product.getPrice(5, 'pre-sale');
+  console.log('productPrice ='.productPrice)
+
+  productPrice = product.getPrice(20, 'something');
+  console.log('productPrice ='.productPrice)
+
+  productPrice = product.getPrice(30, 'black-friday');
+  console.log('productPrice ='.productPrice)
 
   res.render('index.hbs')
 }
