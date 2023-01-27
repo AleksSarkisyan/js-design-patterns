@@ -9,6 +9,9 @@ import BookmarksManager from "../patterns/memento/BookmarksManager.js";
 import Observable from "../patterns/observer/Observable.js";
 import Observer from "../patterns/observer/Observer.js";
 import Product from "../patterns/strategy/Product.js";
+import Cat from "../patterns/template/Cat.js";
+import Dog from "../patterns/template/Dog.js";
+import LinuxFactory from "../patterns/factory/LinuxFactory.js";
 
 export const command = (req, res) => {
 
@@ -100,6 +103,36 @@ export const strategy = (req, res) => {
 
   productPrice = product.getPrice(30, 'black-friday');
   console.log('productPrice ='.productPrice)
+
+  res.render('index.hbs')
+}
+
+export const template = (req, res) => {
+  let cat = new Cat();
+  let dog = new Dog();
+
+  cat.eat();
+  cat.speak();
+
+  dog.eat();
+  dog.speak();
+
+  res.render('index.hbs')
+}
+
+export const factory = (req, res) => {
+  let debian = new LinuxFactory();
+  let debianDistro = debian.getLinuxDistribution('debian');
+
+  let redhat = new LinuxFactory();
+  let redhatDistro = redhat.getLinuxDistribution('redhat');
+
+  let ubuntu = new LinuxFactory();
+  let ubuntuDistro = ubuntu.getLinuxDistribution('ubuntu');
+
+  console.log(debianDistro.boot());
+  console.log(redhatDistro.boot());
+  console.log(ubuntuDistro.boot());
 
   res.render('index.hbs')
 }
