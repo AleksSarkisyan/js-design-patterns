@@ -12,6 +12,7 @@ import Product from "../patterns/strategy/Product.js";
 import Cat from "../patterns/template/Cat.js";
 import Dog from "../patterns/template/Dog.js";
 import LinuxFactory from "../patterns/factory/LinuxFactory.js";
+import HDMIToVGAAdapter from "../patterns/adapter/HDMIToVGAAdapter.js";
 
 export const command = (req, res) => {
 
@@ -133,6 +134,14 @@ export const factory = (req, res) => {
   console.log(debianDistro.boot());
   console.log(redhatDistro.boot());
   console.log(ubuntuDistro.boot());
+
+  res.render('index.hbs')
+}
+
+export const adapter = (req, res) => {
+
+  const hdmiToVgaAdapter = new HDMIToVGAAdapter();
+  hdmiToVgaAdapter.handleDigitalSignal();
 
   res.render('index.hbs')
 }

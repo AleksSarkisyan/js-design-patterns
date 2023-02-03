@@ -10,6 +10,7 @@ import { observer } from '../controllers/HomeController.js';
 import { strategy } from '../controllers/HomeController.js';
 import { template } from '../controllers/HomeController.js';
 import { factory } from '../controllers/HomeController.js';
+import { adapter } from '../controllers/HomeController.js';
 
 // Application Routes
 router.get('/command', command);
@@ -21,5 +22,6 @@ router.get('/observer', observer);
 router.get('/strategy', strategy);
 router.get('/template', template);
 router.get('/factory', factory);
+router.get('/adapter', adapter);
 
 export default router;
